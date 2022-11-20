@@ -1,0 +1,266 @@
+<html>
+    <style>
+    /*Hoja de estilos*/
+    body{
+
+  
+  background-image: url("https://i.pinimg.com/originals/8b/d2/65/8bd2651385a7e522bff9986bbc0b7d64.jpg");
+  
+ 
+      margin-top: 40px;
+      padding: 10px;
+    }
+#entorno {
+  display: block;
+  margin: 0 auto;
+}
+
+#fondo {
+  border: 2px solid black;
+  opacity: 0.5;
+
+}
+
+
+button {
+
+ background: #FBCA1F;
+ font-family: inherit;
+ padding: 0.6em 1.3em;
+ font-weight: 900;
+ font-size: 18px;
+ border: 3px solid black;
+ border-radius: 0.4em;
+ box-shadow: 0.1em 0.1em;
+}
+
+button:hover {
+ transform: translate(-0.05em, -0.05em);
+ box-shadow: 0.15em 0.15em;
+}
+
+button:active {
+ transform: translate(0.05em, 0.05em);
+ box-shadow: 0.05em 0.05em;
+}
+
+header {
+  padding-top: 10px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+nav {
+margin-left: 0px;
+ 
+  float: left;}
+nav ul {
+  list-style:none;
+  overflow: hidden;
+  font-size: 20px; 
+}
+nav ul li {
+
+  float: left;
+}
+nav ul li a {
+
+  display: block;
+  padding-right: 10px;
+  color: #fff; }
+
+ight: 10px;
+
+}
+body footer{
+  margin-top: 400px;
+}
+footer{
+
+   position:absolute;
+   bottom:0;
+   width:500px;
+   height:10px;   
+   
+}
+#button {
+ text-align: center;
+  margin-left: 400px;
+  margin-top: 100px;
+  margin-right: 300px;
+ padding: 17px 40px;
+ border-radius: 50px;
+ border: 0;
+background-color: #F7E1DB;
+ box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ font-size: 15px;
+ transition: all .5s ease;
+}
+
+#button:hover {
+
+margin-left: 400px;
+  margin-top: 100px;
+  margin-right: 300px;
+ letter-spacing: 3px;
+ background-color: hsl(261deg 80% 48%);
+ color: hsl(0, 0%, 100%);
+ box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+#button:active {
+margin-left: 400px;
+  margin-top: 100px;
+  margin-right: 300px;
+ letter-spacing: 3px;
+ background-color: hsl(261deg 80% 48%);
+ color: hsl(0, 0%, 100%);
+ box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+ transform: translateY(10px);
+ transition: 100ms;
+}
+</style>
+<header>
+  <nav class="menu" >
+
+                               <ul >
+
+                                               <li><a href="gg.html"><button> Regresar
+</button></a></li>
+
+                                              
+                                               <li><a href="hamster.html "><button> Reiniciar
+</button></a></li>
+
+                                               <li><a href="contacto.html"><button> Contacto
+</button></a></li>
+
+                               </ul>
+
+                </nav>
+            </header>
+
+<body>
+  
+<div id="nombre" align="right"><img  src="nhamster.png" width="600" height="100"><img  src="logo.png" width="300" height="100"></div>
+
+ <svg width="600" height="600" id="entorno">
+    <g id="fondo"><image xlink:href="fhamster.jpg" width="400" height="400" x="200" y="100"></g>
+  <g class="padre" id="0"><image xlink:href="1h.png" class="movil"></g>
+  <g class="padre" id="1"><image xlink:href="2h.png" class="movil"></g>
+  <g class="padre" id="2"><image xlink:href="3h.png" class="movil"></g>
+  <g class="padre" id="3"><image xlink:href="4h.png" class="movil"></g>
+  <g class="padre" id="4"><image xlink:href="5h.png" class="movil"></g>
+  <g class="padre" id="5"><image xlink:href="6h.png" class="movil"></g>
+  <g class="padre" id="6"><image xlink:href="7h.png" class="movil"></g>
+  <g class="padre" id="7"><image xlink:href="8h.png" class="movil"></g>
+  <g class="padre" id="8"><image xlink:href="9h.png" class="movil"></g>
+</svg>
+<audio id="win" src="win.mp3"></audio>
+  
+</body>
+<script>
+    
+/*Programacion de JavaScript*/
+
+var piezas = document.getElementsByClassName('movil');
+
+var tamWidh = [134,192,134,163,134,163,134,192,134];
+var tamHeight = [163,134,163,134,192,134,163,134,163];
+
+for(var i=0;i<piezas.length;i++){
+  piezas[i].setAttribute("width", tamWidh[i]);
+  piezas[i].setAttribute("height",tamHeight[i]);
+  piezas[i].setAttribute("x", Math.floor((Math.random() * 10) + 1));
+  piezas[i].setAttribute("y", Math.floor((Math.random() * 409) + 1));
+  piezas[i].setAttribute("onmousedown","seleccionarElemento(evt)");
+}
+
+var elementSelect = 0;  
+var currentX = 0;
+var currentY = 0;
+var currentPosX = 0;
+var currentPosY = 0;
+
+function seleccionarElemento(evt) {
+  elementSelect = reordenar(evt);
+  currentX = evt.clientX;        
+  currentY = evt.clientY;
+  currentPosx = parseFloat(elementSelect.getAttribute("x"));     
+  currentPosy = parseFloat(elementSelect.getAttribute("y"));
+  elementSelect.setAttribute("onmousemove","moverElemento(evt)");
+}
+
+function moverElemento(evt){
+  var dx = evt.clientX - currentX;
+  var dy = evt.clientY - currentY;
+  currentPosx = currentPosx + dx;
+  currentPosy = currentPosy + dy;
+  elementSelect.setAttribute("x",currentPosx);
+  elementSelect.setAttribute("y",currentPosy);
+  currentX = evt.clientX;        
+  currentY = evt.clientY;
+  elementSelect.setAttribute("onmouseout","deseleccionarElemento(evt)");
+  elementSelect.setAttribute("onmouseup","deseleccionarElemento(evt)");
+  iman();
+}
+
+function deseleccionarElemento(evt){
+  testing();
+  if(elementSelect != 0){     
+    elementSelect.removeAttribute("onmousemove");
+    elementSelect.removeAttribute("onmouseout");
+    elementSelect.removeAttribute("onmouseup");
+    elementSelect = 0;
+  }
+}
+
+var entorno = document.getElementById('entorno');
+
+function reordenar(evt){
+  var padre = evt.target.parentNode;
+  var clone = padre.cloneNode(true);
+  var id = padre.getAttribute("id");
+  entorno.removeChild(document.getElementById(id));
+  entorno.appendChild(clone);
+  return entorno.lastChild.firstChild;
+}
+
+var origX = [200,304,466,200,333,437,200,304,466];   
+var origY = [100,100,100,233,204,233,337,366,337];
+
+function iman(){
+  for(var i=0;i<piezas.length;i++){
+    if (Math.abs(currentPosx-origX[i])<15 && Math.abs(currentPosy-origY[i])<15) {
+      elementSelect.setAttribute("x",origX[i]);
+      elementSelect.setAttribute("y",origY[i]);
+    }
+  }
+}
+      
+var win = document.getElementById("win");
+
+function testing() {
+  var bien_ubicada = 0;
+  var padres = document.getElementsByClassName('padre');
+  for(var i=0;i<piezas.length;i++){
+    var posx = parseFloat(padres[i].firstChild.getAttribute("x"));    
+    var posy = parseFloat(padres[i].firstChild.getAttribute("y"));
+    ide = padres[i].getAttribute("id");
+    if(origX[ide] == posx && origY[ide] == posy){
+      bien_ubicada = bien_ubicada + 1;
+    }
+  }
+  if(bien_ubicada == 9){
+    win.play();
+  }
+}
+
+  
+
+</script>
+<footer id="button" > © 2022 ECJA Todos los derechos reservados.
+</footer>
+</html>
